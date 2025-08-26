@@ -26,7 +26,7 @@
     "@nestjs/platform-express": "^11.0.1",
     "@nestjs/swagger": "^11.2.0",
     "@types/mongoose": "^5.11.96",
-    "baileys": "^6.7.18",
+    "baileys": "^6.7.19-alpha.0",
     "dotenv": "^17.2.1",
     "link-preview-js": "^3.1.0",
     "mongoose": "^8.18.0",
