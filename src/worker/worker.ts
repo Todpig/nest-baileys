@@ -2,7 +2,6 @@ import { parentPort } from 'worker_threads';
 import { fakeTyping } from '../utils/global';
 import { Session } from 'src/session/session';
 import { AnyMessageContent, getUrlInfo } from 'baileys';
-import { get } from 'mongoose';
 
 interface SignalActions {
   start: ({ sessionId }: any) => Promise<void>;

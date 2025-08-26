@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import {
   AuthenticationCreds,
   SignalDataTypeMap,
@@ -8,8 +9,7 @@ import {
 import { MongoClient, Collection } from 'mongodb';
 import { Logger } from 'pino';
 
-const { DB_URI = 'mongodb://admin:pass@localhost:27017', DB_NAME = 'test' } =
-  process.env;
+const { DB_URI, DB_NAME } = process.env;
 
 export class UseAuthState {
   sessionId: string;
@@ -21,7 +21,7 @@ export class UseAuthState {
 
   constructor({ logger, sessionId }: { logger: Logger; sessionId: string }) {
     this.sessionId = sessionId;
-    this.client = new MongoClient(DB_URI);
+    this.client = new MongoClient(DB_URI as string);
     this.logger = logger;
   }
 

@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import { Module } from '@nestjs/common';
 import { MongooseModule, getConnectionToken } from '@nestjs/mongoose';
 import { SessionController } from 'src/session/session.controller';
@@ -6,13 +7,9 @@ import { pino } from 'pino';
 
 @Module({
   imports: [
-    MongooseModule.forRoot(
-      process.env.MONGO_URI ||
-        'mongodb://admin:pass@localhost:27017/auth?authSource=admin',
-      {
-        dbName: process.env.DB_NAME || 'test',
-      },
-    ),
+    MongooseModule.forRoot(process.env.DB_URI as string, {
+      dbName: process.env.DB_NAME,
+    }),
   ],
   controllers: [SessionController],
   providers: [
